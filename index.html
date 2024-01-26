@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Quran Verse Saver</h1>
+        <h3>Enter Your Goal for Each Day:</h3>
+        <select name="" id="selectoption">
+            <option value="5" selected>5 verses</option>
+            <option value="10">10 verses</option>
+            <option value="15">15 verses</option>
+            <option value="20">20 verses</option>
+            <option value="0" id="customgoal">custom</option>
+        </select>
+        <div id="forcustomgoal">
+            <label for="customgoalinput"><input type="number" name="" id="customgoalinput"></label>
+        </div>
+        <button id="completiongoal">Complete Goal FOR Today</button>
+
+        <h3>Verses Read Today: <h2 id="savedReadToday">0</h2></h3>
+        <h3>Total verses Read: <h2 id="totalread">0</h2></h3>
+        <button id="removetotal">Clear Total Verses Read</button>
+        <button id="removetoday">Clear Verses Read Today</button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
