@@ -79,7 +79,7 @@ margin-left: 9em;;
     padding: 11px;
     margin-left: 6em;
 }
-@media screen and (min-width: 280px) and (max-width:300px) {
+@media screen and (min-width: 190px) and (max-width:300px) {
     #completiongoal{
         margin-left: 3em;
     }
