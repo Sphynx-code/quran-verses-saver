@@ -79,3 +79,15 @@ margin-left: 9em;;
     padding: 11px;
     margin-left: 6em;
 }
+@media screen and (width: 280px)  {
+    #completiongoal{
+        margin-left: 3em;
+    }
+    #removetotal{
+        margin-left: 3em;
+    }
+    #removetoday{
+        margin-left: 3em;
+    }
+    
+}
