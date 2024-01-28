@@ -1,4 +1,4 @@
-f*{
+*{
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -29,7 +29,7 @@ button{
     display: block;
     background-color: bisque;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    min-width: 7em;
+    
     min-height: 3em;
     border:3px solid black;
     margin-bottom:7px;
@@ -62,20 +62,20 @@ margin-bottom: 10px;
     margin-left: 4px;
 }
 #completiongoal{
+    min-width: 13em;
     cursor: pointer;
     padding: 10px;
     margin-left: 6em;
 }
-#save{
-    
-margin-left: 9em;;
-}
+
 #removetotal{
+    min-width: 13em;
     cursor: pointer;
     margin-left: 6em;
     padding: 12px;
 }
 #removetoday{
+    min-width: 13em;
     cursor: pointer;
     padding: 11px;
     margin-left: 6em;
@@ -94,9 +94,9 @@ margin-left: 9em;;
 }
 #selectoption{
     width:6.5em;
-    height:2.5em;
+    height:2em;
 }
 #customgoalinput{
-    width:6.5em;
+    width:7em;
     height:2.5em;
 }
