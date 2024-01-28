@@ -16,6 +16,7 @@ window.addEventListener('load', () => {
   const totalRead = localStorage.getItem('totalRead') || '0';
   const lastUpdatedTimestamp = parseInt(localStorage.getItem('lastUpdatedTimestamp'), 10) || 0;
   const customGoal = localStorage.getItem('customGoal') || '';
+  const selectedOptionValue = selectOption.value;
 
   // Check if 24 hours have passed since the last update
   if (getCurrentTimestamp() - lastUpdatedTimestamp >= 24 * 60 * 60) {
@@ -27,13 +28,17 @@ window.addEventListener('load', () => {
   totalReadVerses.innerHTML = totalRead;
 
   // Set the value of the customGoalInput if a custom goal was previously set
-  if (customGoal) {
+  if (selectedOptionValue === "0") {
     customGoalInput.value = customGoal;
-    // Update totalReadVerses with the custom goal value
-    let totalVerses = parseInt(totalReadVerses.innerText) + parseInt(customGoal);
-    totalReadVerses.innerHTML = `<h2>${totalVerses}</h2>`;
+    if (customGoal) {
+      // Update totalReadVerses with the custom goal value
+      let totalVerses = parseInt(totalReadVerses.innerText) + parseInt(customGoal);
+      totalReadVerses.innerHTML = `<h2>${totalVerses}</h2>`;
+    }
   }
 });
+
+
 
 function goalButton() {
   let verses = selectOption.value;
