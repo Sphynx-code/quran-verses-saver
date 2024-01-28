@@ -29,6 +29,9 @@ window.addEventListener('load', () => {
   // Set the value of the customGoalInput if a custom goal was previously set
   if (customGoal) {
     customGoalInput.value = customGoal;
+    // Update totalReadVerses with the custom goal value
+    let totalVerses = parseInt(totalReadVerses.innerText) + parseInt(customGoal);
+    totalReadVerses.innerHTML = `<h2>${totalVerses}</h2>`;
   }
 });
 
@@ -38,26 +41,40 @@ function goalButton() {
 
   if (selectOption.value === "0") {
     currentDayGoal = customGoalInput.value;
+
+    // Check if the custom goal input is not a valid number
+    if (isNaN(parseInt(currentDayGoal))) {
+      alert("Please enter a valid number for the custom goal.");
+      return;
+    }
+
+    // Check if the goal has already been completed on the current day with the same custom value
+    if (currentDayGoal !== '0' && currentDayGoal === savedReadToday.innerText) {
+      alert("You have already completed the goal for today with the same custom value. Choose another value or wait until the next day for the next goal.");
+      return;
+    }
   }
 
-  // Check if the goal has already been completed on the current day
+  // Check if the goal has already been completed on the current day with the same value
   if (currentDayGoal !== '0' && currentDayGoal === verses) {
     alert("You have already completed the goal for today. Choose another value or wait until the next day for the next goal.");
     return;
   }
 
-  savedReadToday.innerHTML = `<h2>${verses}</h2>`;
+  // Update totalReadVerses independently
+  let totalVerses = parseInt(totalReadVerses.innerText);
 
   if (selectOption.value === "0") {
-    let customValue = customGoalInput.value;
+    let customValue = parseInt(currentDayGoal);
     savedReadToday.innerHTML = `<h2>${customValue}</h2>`;
-
+    totalVerses += customValue;
     // Save custom goal input to localStorage
-    localStorage.setItem('customGoal', customValue);
+    localStorage.setItem('customGoal', customValue.toString());
+  } else {
+    savedReadToday.innerHTML = `<h2>${verses}</h2>`;
+    totalVerses += parseInt(verses);
   }
 
-  // Update totalReadVerses independently
-  let totalVerses = parseInt(totalReadVerses.innerText) + parseInt(verses);
   totalReadVerses.innerHTML = `<h2>${totalVerses}</h2>`;
 
   // Save values and update timestamp to the current time
