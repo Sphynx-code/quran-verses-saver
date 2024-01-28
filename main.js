@@ -8,7 +8,7 @@ let removeTotalButton = document.getElementById("removetotal");
 let removeTodayButton = document.getElementById("removetoday");
 
 function getCurrentTimestamp() {
-  return Math.floor(new Date().getTime() / 1000); // Get current timestamp in seconds
+  return Math.floor(new Date().getTime() / 1000); // Get the current timestamp in seconds
 }
 
 window.addEventListener('load', () => {
@@ -47,18 +47,20 @@ function goalButton() {
   }
 
   savedReadToday.innerHTML = `<h2>${verses}</h2>`;
-  totalReadVerses.innerHTML = `<h2>${verses}</h2>`;
 
   if (selectOption.value === "0") {
     let customValue = customGoalInput.value;
     savedReadToday.innerHTML = `<h2>${customValue}</h2>`;
-    totalReadVerses.innerHTML = `<h2>${customValue}</h2>`;
 
     // Save custom goal input to localStorage
     localStorage.setItem('customGoal', customValue);
   }
 
-  // Save values and update timestamp to current time
+  // Update totalReadVerses independently
+  let totalVerses = parseInt(totalReadVerses.innerText) + parseInt(verses);
+  totalReadVerses.innerHTML = `<h2>${totalVerses}</h2>`;
+
+  // Save values and update timestamp to the current time
   localStorage.setItem("savedToday", savedReadToday.innerHTML);
   localStorage.setItem("totalRead", totalReadVerses.innerHTML);
   localStorage.setItem('lastUpdatedTimestamp', getCurrentTimestamp());
@@ -76,7 +78,7 @@ selectOption.addEventListener("change", customGoalOption);
 
 function removeTotalf() {
   totalReadVerses.innerHTML = `<h2>0</h2>`;
-  // Save updated value to localStorage
+  // Save the updated value to localStorage
   localStorage.setItem("totalRead", '0');
 }
 
@@ -84,7 +86,7 @@ removeTotalButton.addEventListener("click", removeTotalf);
 
 function removeTodayf() {
   savedReadToday.innerHTML = `<h2>0</h2>`;
-  // Save updated value to localStorage and update timestamp to current time
+  // Save the updated value to localStorage and update timestamp to the current time
   localStorage.setItem('savedToday', '0');
   localStorage.setItem('lastUpdatedTimestamp', getCurrentTimestamp());
 }
