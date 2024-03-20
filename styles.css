@@ -6,7 +6,7 @@
 body{
     min-height: 100vh;
     min-width:100vw;
-    background-image: url(anime-original-flower-garden-hd-wallpaper-preview.jpg);
+    background-color: antiquewhite;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
